@@ -1,11 +1,65 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Full Stack Project</title>
-  </head>
-  <body>
-    <!-- You code goes here-->
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Stock Tracker</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- header -->
+    <header>
+      <h1>A Stock Tracker</h1>
+      <span id="greeting">Hi, Danny</span>
+    </header>
+
+    <!-- search bar -->
+    <div class="search-bar">
+      <input type="text" id="ticker-input" placeholder="Enter ticker (e.g. AAPL)">
+      <button id="search-btn">Search</button>
+      <button id="add-btn" class="primary">Add to watchlist</button>
+    </div>
+
+    <main>
+      <section class="stock-display">
+        <div class="stock-header">
+          <div>
+            <p class="stock-label" id="stock-name">Search a ticker to begin</p>
+            <p class="stock-company" id="stock-company"></p>
+            <p class="stock-price" id="stock-price">$--.--</p>
+          </div>
+          <div class="stock-change" id="stock-change">--</div>
+        </div>
+
+        <div class="timeframe-buttons">
+          <button class="timeframe-btn" data-range="1W">1W</button>
+          <button class="timeframe-btn active" data-range="1M">1M</button>
+          <button class="timeframe-btn" data-range="3M">3M</button>
+          <button class="timeframe-btn" data-range="1Y">1Y</button>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="price-chart"></canvas>
+          <p class="chart-placeholder" id="chart-placeholder">Price chart will appear here</p>
+        </div>
+      </section>
+
+      <aside class="watchlist">
+        <h2>Watchlist</h2>
+        <ul id="watchlist-items">
+          <li class="empty">No stocks saved yet</li>
+        </ul>
+        <p class="footer-note">Stored in localStorage</p>
+      </aside>
+
+    </main>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="index.js"></script>
+</body>
 </html>
