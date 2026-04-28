@@ -44,10 +44,7 @@ header {
 header h1 {
   font-size: 26px;
   font-weight: 700;
-  background: linear-gradient(90deg, #3FB950, #58A6FF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text);
 }
 
 #greeting {
@@ -313,3 +310,70 @@ main {
   color: var(--muted);
   text-align: center;
 }
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 320px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+}
+
+.modal-box h2 {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #3FB950, #58A6FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal-box p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.modal-box input {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--surface2);
+  color: var(--text);
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.modal-box input:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.modal-box button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--green);
+  color: #0D1117;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.modal-box button:hover { background: #2ea043; }

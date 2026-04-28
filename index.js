@@ -14,6 +14,11 @@ const canvas           = document.getElementById("price-chart");
 const timeframeBtns    = document.querySelectorAll(".timeframe-btn");
 const watchlistEl      = document.getElementById("watchlist-items");
 
+const greetingEl   = document.getElementById("greeting");
+const nameModal    = document.getElementById("name-modal");
+const nameInput    = document.getElementById("name-input");
+const nameSubmit   = document.getElementById("name-submit");
+
 let chart = null;
 let currentDailyData = null;
 let currentRange = "1M";
@@ -193,6 +198,29 @@ watchlistEl.addEventListener("click", e => {
     removeFromWatchlist(e.target.dataset.symbol);
   }
 });
+
+function applyName(name) {
+  greetingEl.textContent = `Hi, ${name}`;
+}
+
+function submitName() {
+  const name = nameInput.value.trim();
+  if (!name) return;
+  localStorage.setItem("userName", name);
+  nameModal.style.display = "none";
+  applyName(name);
+}
+
+nameSubmit.addEventListener("click", submitName);
+nameInput.addEventListener("keydown", e => { if (e.key === "Enter") submitName(); });
+
+const savedName = localStorage.getItem("userName");
+if (savedName) {
+  applyName(savedName);
+} else {
+  nameModal.style.display = "flex";
+  nameInput.focus();
+}
 
 renderWatchlist();
 const lastSymbol = localStorage.getItem("lastSymbol");
